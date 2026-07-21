@@ -1,3 +1,4 @@
+//This function is used to validate the user input for name, email, phone, role, country
 const validateUser = (req, res, next) => {
     const { name, email, phone, role, country } = req.body;
 
