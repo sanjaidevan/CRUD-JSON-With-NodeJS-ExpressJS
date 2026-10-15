@@ -5,24 +5,6 @@ const dbpath = path.join(__dirname, "..", "db", "users.json");
 
 let writeLet = false;
 
-// async function writeUser(dbpath,userList) {
-//         try {
-//                 while (writeLet) {
-//                         console.log("Waiting to avoid race condition");
-//                         await new Promises(resolve => setTimeout(resolve, 10));
-//                 }
-//                 await fs.writeFile(dbpath, JSON.stringify({ Users: userList }, null, 2), 'utf-8');
-//                 console.log("Writed data Successfully");
-//                 writeLet = true;
-//         }
-//         catch (error) {
-//                 console.error("Error in writting file",error)
-//         }
-//         finally {
-//                 console.log("Finally block executed.")
-//                 writeLet = false;
-//         }
-// }
 
 const readAllUsers = async () => {
   try {
@@ -37,33 +19,6 @@ const readAllUsers = async () => {
   }
 };
 
-// const readAllUsers = async () => {
-//         try {
-//                 console.log("Started Reading in service");
-//                 const datum = await fs.createReadStream(dbpath, { encoding: 'utf-8' });
-//                 console.log("🚀 ~ readAllUsers ~ datum:", datum)
-//                 try {
-//                         console.log("🚀 ~ readAllUsers ~ try:")
-//                         let data ='';
-//                         for await (const chunk of datum) {
-//                                 console.log('--- File chunk start ---');
-//                                 console.log(chunk);
-//                                 data += chunk;
-//                                 console.log('--- File chunk end ---');
-//                         }
-//                         console.log(`Reading completed ${data}`);
-//                         console.log(JSON.parse(data));
-//                         return JSON.parse(data);
-//                 }
-//                 catch (error) {
-//                         console.error(`Error in reading file ${error.msessage}`)
-//                 }
-//         }
-//         catch (error) {
-//                 console.error("Reading users error");
-//                 return null;
-//         }
-// }
 
 const createUser = async (userData) => {
   try {
